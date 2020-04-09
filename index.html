@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="">
+    <title>Discord server - Hem</title>
+    <style>
+        body {
+            background: #212121;
+            font-family: arial;
+            margin: 0;
+        }
+        header {
+            background: #0082be;
+            color: #dddddd;
+            display: flex;
+
+        }
+        .upper {
+            margin: 5px !important;
+        }
+        main {
+            display: flex;
+            flex-grow: 1;
+            margin: 12px;
+        }
+        .container-box {
+            padding: 24px;
+            background: #303030;
+            color: #dddddd;
+        }
+        .title,.desc {
+            margin: 0;
+        }
+        .title { font-weight: bold; }
+        .desc { font-size: 13px; color: #bbbbbb;}
+        .container {
+            margin-top: 24px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .post-input {
+            border: 0;
+            background: #292929;
+            color: #dddddd;
+            width: 100%;
+            flex-grow: 1;
+            font-size: 12px;
+            margin-bottom: 8px;
+            outline: none;
+        }
+        .post-submit {
+            border: 0;
+            border-radius: 4px;
+            background: #0082be;
+            color: #dddddd;
+            cursor: pointer;
+            width: 40%;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="title upper">Discord server</h1>
+    </header>
+    <main>
+        <div class="container-box">
+            <p class="title">Husman Levererar (ab)</p>
+            <p class="desc">Skicka medelande i servern med Husman!</p>
+            <div class="container">
+                <form method="POST" action="https://discordapp.com/api/webhooks/697460073135603742/o2vgEg-g4JPS-xDbsODhTR4WzFQNzBNF-ZfCmW5vamFg6tt6hxc7LoEw_fVBoOh1mY6V">
+                    <input class="post-input" type="text" name="content" autocomplete="off" maxlength="50" placeholder="Medelande" required>
+                    <button class="post-submit" type="submit">Skicka</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
