@@ -5,26 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skicka medelande</title>
     <style>
-        
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+        main {
+            background: #111111;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content {
+            padding: 40px;
+            border-radius: 30px;
+            background: #252525;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-width: 30%;
+        }
+        .title {
+            color: #ffffff;
+            font-size: 40px;
+            margin: 0 0 50px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .templates {
+            display: flex;
+            width: 100%;
+            margin-bottom: 100px;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+        }
+        .frst-row {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+        #avatar {
+            border-radius: 50%;
+            height: 40px;
+        }
+        input, button {
+            border: 0;
+            padding: 3px;
+            border-radius: 5px;
+            height: 40px;
+            font-size: 16px;
+            flex-grow: 1;
+        }
+        input {
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        button {
+            background: #5ACFF5;
+            cursor: pointer;
+            margin: 0 8px 0 8px;
+        }
     </style>
 </head>
 <body>
     <main>
-        <p class="title">Tildizzz place</p>
-        <div class="message">
-            <select id="key">
-                <option value="https://discordapp.com/api/webhooks/707576751479324712/h86J40reqxmWgNkel8TyeYv_rI0dswfQK-2Eq-qJGkbyqywl4vINXmkfuLB5qt51M8nK">Test</option>
-                <option value="https://discordapp.com/api/webhooks/707637032968519792/CeXK7zD09i7Zo9WSreXLQn70zmQJLczwShTo8qAc6A_zAxQyyoLZRytlN7Jro6dRnujr">#chatt</option>
-                <option value="https://discordapp.com/api/webhooks/705478116340007010/KOqhPmHogUrbEtLbPx1IdlWh25go2QmHmBrr41qUGdwrKadc7NFd1Q9FB8wtVRCd2TPW">#live</option>
-            </select>
-            <div class="user">
-                <a href="javascript:void(0)" id="avatarBtn">
-                    <img src="" alt="Avatar bild" id="avatar">
-                </a>
-                <input type="text" id="name" autocomplete="off" spellcheck="false" placeholder="Namn">
+        <div class="content">
+            <p class="title">Tildizzz place</p>
+            <div class="message">
+                <select id="key">
+                    <option value="https://discordapp.com/api/webhooks/707576751479324712/h86J40reqxmWgNkel8TyeYv_rI0dswfQK-2Eq-qJGkbyqywl4vINXmkfuLB5qt51M8nK">Test</option>
+                    <option value="https://discordapp.com/api/webhooks/707637032968519792/CeXK7zD09i7Zo9WSreXLQn70zmQJLczwShTo8qAc6A_zAxQyyoLZRytlN7Jro6dRnujr">#chatt</option>
+                    <option value="https://discordapp.com/api/webhooks/705478116340007010/KOqhPmHogUrbEtLbPx1IdlWh25go2QmHmBrr41qUGdwrKadc7NFd1Q9FB8wtVRCd2TPW">#live</option>
+                </select>
+                <div class="user">
+                    <a href="javascript:void(0)" id="avatarBtn">
+                        <img src="https://cdn.discordapp.com/avatars/490817375382536207/4f21f21f52688bad49eff2ad0ffe7f0f.png" alt="Avatar bild" id="avatar">
+                    </a>
+                    <input type="text" id="name" autocomplete="off" spellcheck="false" placeholder="Namn">
+                </div>
+                <input type="text" id="content" autocomplete="off" spellcheck="false" placeholder="Text (obligatorisk)" required>
+                <a href="javascript:void(0)" id="send">Skicka</a>
             </div>
-            <input type="text" id="content" autocomplete="off" spellcheck="false" placeholder="Text (obligatorisk)" required>
-            <a href="javascript:void(0)" id="send">Skicka</a>
         </div>
     </main>
     <form method="POST" id="form">
