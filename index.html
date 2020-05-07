@@ -3,73 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="">
-    <title>Discord server - Hem</title>
+    <title>Skicka medelande</title>
     <style>
-        body {
-            background: #212121;
-            font-family: arial;
-            margin: 0;
-        }
-        header {
-            background: #0082be;
-            color: #dddddd;
-            display: flex;
-
-        }
-        .upper {
-            margin: 5px !important;
-        }
-        main {
-            display: flex;
-            flex-grow: 1;
-            margin: 12px;
-        }
-        .container-box {
-            padding: 24px;
-            background: #303030;
-            color: #dddddd;
-        }
-        .title,.desc {
-            margin: 0;
-        }
-        .title { font-weight: bold; }
-        .desc { font-size: 13px; color: #bbbbbb;}
-        .container {
-            margin-top: 24px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .post-input {
-            border: 0;
-            background: #292929;
-            color: #dddddd;
-            width: 100%;
-            flex-grow: 1;
-            font-size: 12px;
-            margin-bottom: 8px;
-            outline: none;
-        }
-        .post-submit {
-            border: 0;
-            border-radius: 4px;
-            background: #0082be;
-            color: #dddddd;
-            cursor: pointer;
-            width: 40%;
-            outline: none;
-        }
+        
     </style>
 </head>
 <body>
-    <header>
-        <h1 class="title upper">Discord server</h1>
-    </header>
     <main>
-
+        <p class="title">Tildizzz place</p>
+        <div class="message">
+            <select id="key">
+                <option value="https://discordapp.com/api/webhooks/707576751479324712/h86J40reqxmWgNkel8TyeYv_rI0dswfQK-2Eq-qJGkbyqywl4vINXmkfuLB5qt51M8nK">Test</option>
+                <option value="https://discordapp.com/api/webhooks/707637032968519792/CeXK7zD09i7Zo9WSreXLQn70zmQJLczwShTo8qAc6A_zAxQyyoLZRytlN7Jro6dRnujr">#chatt</option>
+                <option value="https://discordapp.com/api/webhooks/705478116340007010/KOqhPmHogUrbEtLbPx1IdlWh25go2QmHmBrr41qUGdwrKadc7NFd1Q9FB8wtVRCd2TPW">#live</option>
+            </select>
+            <div class="user">
+                <a href="javascript:void(0)" id="avatarBtn">
+                    <img src="" alt="Avatar bild" id="avatar">
+                </a>
+                <input type="text" id="name" autocomplete="off" spellcheck="false" placeholder="Namn">
+            </div>
+            <input type="text" id="content" autocomplete="off" spellcheck="false" placeholder="Text (obligatorisk)" required>
+            <a href="javascript:void(0)" id="send">Skicka</a>
+        </div>
     </main>
+    <form method="POST" id="form">
+        <input type="hidden" name="avatar_url">
+        <input type="hidden" name="username">
+        <input type="hidden" name="content">
+    </form>
 </body>
 </html>
+<script>
+    var imgUrl = undefined;
+    var avatar = document.getElementById("avatarBtn");
+    var img = document.getElementById("avatar");
+    avatar.onclick = async function() {
+        var url = await navigator.clipboard.readText();
+        img.src = url;
+        imgUrl = url;
+    }
+
+    var send = document.getElementById("send");
+    var form = document.getElementById("form");
+    send.onclick = function() {
+        var name = document.getElementById("name").value;
+        var content = document.getElementById("content").value;
+
+        form.action = document.getElementById("key").value;
+        if (imgUrl) {
+            document.getElementsByName("avatar_url")[0].value = imgUrl;
+        }
+        document.getElementsByName("username")[0].value = name;
+        document.getElementsByName("content")[0].value = content;
+        form.submit();
+    }
+</script>
